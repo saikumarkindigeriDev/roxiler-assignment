@@ -140,7 +140,7 @@ app.get('/transactions/barchart/:category', (req, res) => {
   `;
 
 
-  connection.query(sqlQuery, [selectedMonth], (err, results) => {
+  pool.query(sqlQuery, [selectedMonth], (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
       res.status(500).json({ error: 'Internal Server Error' });
